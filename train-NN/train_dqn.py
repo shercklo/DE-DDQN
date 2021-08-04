@@ -2,7 +2,7 @@
 
 import os, sys
 import time
-import numpy as np  # "pip install numpy" installs numpy
+import numpy as np
 import random
 import math
 import csv
@@ -191,7 +191,9 @@ memory = SequentialMemory(limit=100000, window_length=1)#100000
 policy = EpsGreedyQPolicy()
 
 # DQN Agent: Finally, we configure and compile our agent. You can use every built-in Keras optimizer and even the metrics!
-dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=1e4, target_model_update=1e3, policy=policy, enable_double_dqn = True, batch_size = 64) # nb_steps_warmup >= nb_steps 2000
+dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmup=1e4, target_model_update=1e3,
+               policy=policy, enable_double_dqn = True, batch_size = 64)
+# nb_steps_warmup >= nb_steps 2000
 # DQN stores the experience in the memory buffer for the first nb_steps_warmup. This is done to get the required size of batch during experience replay.
 # When number of steps exceeds nb_steps_warmup then the neural network would learn and update the weight.
 

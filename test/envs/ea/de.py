@@ -261,9 +261,9 @@ class DEEnv(gym.Env):
         self.i = self.i+1
 
         if self.i >= self.NP:
-            self.gen_window.append(self.third_dim);
+            self.gen_window.append(self.third_dim)
             self.copy_ob = np.zeros(64)
-            # Generation based statistics
+             # Generation based statistics
             self.copy_ob[0:4] = Success_Rate1(self.NP, self.n_ops, self.gen_window, 1, self.max_gen)
             self.copy_ob[4:8] = Success_Rate1(self.NP, self.n_ops, self.gen_window, 2, self.max_gen)
             self.copy_ob[8:12] = Success_Rate1(self.NP, self.n_ops, self.gen_window, 3, self.max_gen)
@@ -286,13 +286,13 @@ class DEEnv(gym.Env):
             
             self.third_dim = []
             self.opu = np.zeros(self.NP) * 4
-            self.i = 0;
+            self.i = 0
             self.fill_points = np.random.randint(self.dim, size = self.NP)
             self.generation = self.generation + 1
             self.population = np.copy(self.X)
             self.copy_F = np.copy(self.F)
             self.best = np.argmin(self.copy_F)
-            self.pop_average = np.average(self.copy_F);
+            self.pop_average = np.average(self.copy_F)
             self.pop_std = np.std(self.copy_F)
         
         # Preparation for observation to give for next action decision
